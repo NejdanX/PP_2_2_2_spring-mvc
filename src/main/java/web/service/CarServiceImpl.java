@@ -11,8 +11,12 @@ import java.util.List;
 @Service
 public class CarServiceImpl implements CarService {
 
+    private final CarDao carDao;
+
     @Autowired
-    private CarDao carDao;
+    protected CarServiceImpl(CarDao carDao) {
+        this.carDao = carDao;
+    }
 
     @Override
     public List<Car> getCarsList(int count) {
